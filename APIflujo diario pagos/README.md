@@ -164,6 +164,52 @@ La respuesta incluye `id` (SystemId) y `numeroLinea` ya asignados.
 - **Compilar:** `Ctrl+Shift+B` en VS Code (o `AL: Package`).
 - **Publicar:** `F5` (publish + debug) o `Ctrl+F5` (publish sin debug) contra el sandbox
   de [.vscode/launch.json](.vscode/launch.json).
-- Rango de IDs del proyecto: **50100–50149** (`app.json`). Página y permission set usan **50100**.
+- Rango de IDs del proyecto: **50100–50149** (`app.json`). Objetos: página `50100`
+  (diario), página `50101` (Item), permission set `50100`.
 - Tras publicar, **refresca la conexión de Business Central en Power Automate** para que
-  aparezca la API `bodhitri/pagos` y la tabla `genJournalLines` con los campos en español.
+  aparezcan las APIs `bodhitri/pagos` (`genJournalLines`) y `bodhitri/maestros` (`items`).
+
+---
+
+## 7. API de Item (maestro de artículos)
+
+Expone la tabla **Item (27)** con campos que la API estándar `items` **no** trae, para
+leerlos/actualizarlos desde Power Automate.
+
+- **Objeto:** `page 50101 "BDT Item API"` → [Pag50101.ItemAPI.al](pages/Pag50101.ItemAPI.al)
+- **Endpoint:** `.../api/bodhitri/maestros/v1.0/companies({companyId})/items`
+- **Clave OData:** `SystemId` (`id`). Localiza artículos por `numero` (= `No.`), p. ej.
+  `.../items?$filter=numero eq '1000'`.
+
+| Propiedad API (JSON)     | Campo tabla Item              | Tipo      | Origen | Notas |
+|--------------------------|-------------------------------|-----------|--------|-------|
+| `id`                     | SystemId                      | GUID      | —      | Clave (solo lectura). |
+| `numero`                 | No.                           | Code[20]  | std    | Localizar/filtrar. |
+| `descripcion`            | Description                   | Text[100] | std    | |
+| `tipo`                   | Type                          | Enum      | std    | `Inventory` / `Service` / `Non-Inventory`. |
+| `unidadMedidaBase`       | Base Unit of Measure          | Code[10]  | std    | |
+| `codCategoria`           | Item Category Code            | Code[20]  | std    | |
+| `origen`                 | LyL OrigenLP                  | Text[100] | LyL    | Requiere dependencia `LyLVariantsExt`. |
+| `codGrupoImpuestoCompra` | Tax Group Code                | Code[20]  | std    | |
+| `grupoContableProdGen`   | Gen. Prod. Posting Group      | Code[20]  | std    | |
+| `grupoRegistroInventario`| Inventory Posting Group       | Code[20]  | std    | |
+| `politicaEnsamblado`     | Assembly Policy               | Enum      | std    | `Assemble-to-Stock` / `Assemble-to-Order`. |
+| `codGrupoImpuestoVenta` ⚠️| D365L CO Sales Tax Group Code | Code[20]  | D365L  | Activo; requiere descargar el símbolo (ver abajo). |
+
+### ⚠️ `D365L CO Sales Tax Group Code` — descargar símbolo
+
+La **dependencia ya está declarada** en `app.json` (D365LATAM - Colombia Localization,
+`badb1d5c-…`) y el campo ya está **activo** en la página. Solo falta el archivo de símbolos:
+
+1. En VS Code: `Ctrl+Shift+P` → **"AL: Download Symbols"** (con el sandbox de
+   [.vscode/launch.json](.vscode/launch.json)). Como la dependencia está en `app.json`,
+   esto baja el símbolo de **D365LATAM** (y de LyL/Microsoft) a `.alpackages`.
+2. Compila (`Ctrl+Shift+B`). Hasta ese momento verás `error AL1022` (símbolo no encontrado);
+   es esperado y desaparece al descargar.
+
+> Si el nombre real del campo difiere de `"D365L CO Sales Tax Group Code"`, el compilador
+> lo indicará tras descargar; ajusta el nombre en [Pag50101.ItemAPI.al](pages/Pag50101.ItemAPI.al).
+
+> **Dependencias añadidas:** este proyecto ahora depende de `LyLVariantsExt` (L&L Consultores,
+> por `LyL OrigenLP`) y de `D365LATAM - Colombia Localization` (por `codGrupoImpuestoVenta`). La
+> extensión no se podrá instalar en un entorno que no tenga ambas instaladas.

@@ -10,7 +10,20 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "82b819df-9a08-4cba-a31b-e08ef2612729",
+      "name": "LyLVariantsExt",
+      "publisher": "L&L Consultores",
+      "version": "1.0.0.117"
+    },
+    {
+      "id": "badb1d5c-5bff-4b76-9a66-2d6d2de4183b",
+      "name": "D365LATAM - Colombia Localization",
+      "publisher": "D365LATAM",
+      "version": "27.0.0.17"
+    }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "27.0.0.0",
