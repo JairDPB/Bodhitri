@@ -1,0 +1,39 @@
+{
+  "id": "2d3d5c14-8267-4d43-b57d-115b44f8bbae",
+  "name": "Formatos Bodhitri",
+  "publisher": "Bodhitri",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "c2c772dd-e8d0-4698-bcea-def09552237b",
+      "name": "Ezgo Fields",
+      "publisher": "LyL Consultores",
+      "version": "1.0.0.84"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "27.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "16.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
