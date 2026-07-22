@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-07-15T20:02:17.7918453Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-07-17T20:14:25.3913432Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -602,8 +602,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>8.23791cm</Top>
-            <Left>13.57358cm</Left>
+            <Top>8.87291cm</Top>
+            <Left>14.20858cm</Left>
             <Height>3cm</Height>
             <Width>12.74699cm</Width>
             <Style>
@@ -631,7 +631,7 @@
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.79433cm</Width>
+                  <Width>6.65798cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.85089cm</Width>
@@ -640,7 +640,7 @@
                   <Width>3.26099cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.34229cm</Width>
+                  <Width>2.15369cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1154,7 +1154,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>1.4cm</Height>
+                  <Height>1.18833cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1671,8 +1671,8 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>6.29708cm</Top>
             <Left>0.3937cm</Left>
-            <Height>2cm</Height>
-            <Width>25.92687cm</Width>
+            <Height>1.78833cm</Height>
+            <Width>26.60192cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2250,7 +2250,7 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Left>0.3937cm</Left>
             <Height>4.8cm</Height>
-            <Width>12.16816cm</Width>
+            <Width>12.16817cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -2265,7 +2265,7 @@
                   <Width>4.6023cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>8.14771cm</Width>
+                  <Width>8.82275cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2713,7 +2713,7 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Left>13.57057cm</Left>
             <Height>4.8cm</Height>
-            <Width>12.75cm</Width>
+            <Width>13.42505cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -3448,10 +3448,10 @@ PARA PROYECTOS DE SUMINISTRO E INSTALACIÓN DE PISOS
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>11.61521cm</Top>
+            <Top>12.56771cm</Top>
             <Left>0.3937cm</Left>
             <Height>12.9941cm</Height>
-            <Width>25.92687cm</Width>
+            <Width>25.92686cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -3463,7 +3463,7 @@ PARA PROYECTOS DE SUMINISTRO E INSTALACIÓN DE PISOS
         <Height>25.91376cm</Height>
         <Style />
       </Body>
-      <Width>26.66292cm</Width>
+      <Width>27.44541cm</Width>
       <Page>
         <PageHeader>
           <Height>2.64266cm</Height>
@@ -3475,7 +3475,7 @@ PARA PROYECTOS DE SUMINISTRO E INSTALACIÓN DE PISOS
               <Value>Imagen4</Value>
               <Sizing>FitProportional</Sizing>
               <Top>0.28787cm</Top>
-              <Left>2.74188cm</Left>
+              <Left>3.37688cm</Left>
               <Height>2.00271cm</Height>
               <Width>21.75307cm</Width>
               <Style>
@@ -3547,8 +3547,8 @@ PARA PROYECTOS DE SUMINISTRO E INSTALACIÓN DE PISOS
             </Border>
           </Style>
         </PageFooter>
-        <PageHeight>30cm</PageHeight>
-        <PageWidth>27cm</PageWidth>
+        <PageHeight>31cm</PageHeight>
+        <PageWidth>28cm</PageWidth>
         <ColumnSpacing>1.27cm</ColumnSpacing>
         <Style />
       </Page>
