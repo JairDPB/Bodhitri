@@ -236,19 +236,19 @@ https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/bodhi
 
 ### Campos expuestos
 
-| Propiedad API (JSON) | Caption BC          | Campo tabla 81 (id)          | Tipo      | Notas |
-|----------------------|---------------------|------------------------------|-----------|-------|
-| `id`                 | Id                  | SystemId                     | GUID      | Clave (solo lectura). |
-| `fechaRegistro`      | Fecha registro      | Posting Date (5)             | Date      | Si va vacío usa la fecha de trabajo. |
-| `tipoMovimiento`     | Tipo mov.           | Account Type (3)             | Enum      | `G/L Account`, `Vendor`, `Bank Account`… |
-| `numeroCuenta`       | N.º cuenta          | Account No. (4)              | Code[20]  | N.º del proveedor/cliente/cuenta. |
-| `codigoFormaPago`    | Cód. forma pago     | Payment Method Code (172)    | Code[10]  | P. ej. `TRANSF`. |
-| `importe`            | Importe             | Amount (13)                  | Decimal   | Signo según contabilidad. |
-| `tipoContrapartida`  | Tipo contrapartida  | Bal. Account Type (63)       | Enum      | Banco: `Bank Account`. |
-| `cuentaContrapartida`| Cta. contrapartida  | Bal. Account No. (11)        | Code[20]  | N.º de banco/cuenta. |
-| `numeroTercero`      | N.º tercero         | D365L CO Third No. (66837)   | Code[35]  | Localización Colombia (D365LATAM). |
-| `numeroLinea`        | N.º línea           | Line No. (2)                 | Integer   | Solo lectura. Lo asigna el servidor. |
-| `lastModifiedDateTime`| Última modificación| SystemModifiedAt             | DateTime  | Solo lectura. |
+| Propiedad API (JSON)    | Caption BC              | Campo tabla 81 (id)          | Tipo      | Notas |
+|-------------------------|-------------------------|------------------------------|-----------|-------|
+| `id`                    | Id                      | SystemId                     | GUID      | Clave (solo lectura). No renombrar: la usa el conector de BC. |
+| `fechaDeRegistro`       | Fecha de registro       | Posting Date (5)             | Date      | Si va vacío usa la fecha de trabajo. |
+| `tipoDeMovimiento`      | Tipo de movimiento      | Account Type (3)             | Enum      | `G/L Account`, `Vendor`, `Bank Account`… |
+| `numeroDeCuenta`        | Número de cuenta        | Account No. (4)              | Code[20]  | N.º del proveedor/cliente/cuenta. |
+| `codigoFormaDePago`     | Código de forma de pago | Payment Method Code (172)    | Code[10]  | P. ej. `TRANSF`. |
+| `importe`               | Importe                 | Amount (13)                  | Decimal   | Signo según contabilidad. |
+| `tipoDeContrapartida`   | Tipo de contrapartida   | Bal. Account Type (63)       | Enum      | Banco: `Bank Account`. |
+| `cuentaDeContrapartida` | Cuenta de contrapartida | Bal. Account No. (11)        | Code[20]  | N.º de banco/cuenta. |
+| `numeroDeTercero`       | Número de tercero       | D365L CO Third No. (66837)   | Code[35]  | Localización Colombia (D365LATAM). |
+| `numeroDeLinea`         | Número de línea         | Line No. (2)                 | Integer   | Solo lectura. Lo asigna el servidor. |
+| `ultimaModificacion`    | Última modificación     | SystemModifiedAt             | DateTime  | Solo lectura. |
 
 > **Plantilla/Sección fijas:** no se envían desde el flujo. La API los fija a
 > `PAGOS`/`TESORERIA` (filtro en `SourceTableView` para leer, y en `OnInsertRecord`
@@ -260,18 +260,18 @@ https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/bodhi
 
 ```json
 {
-  "fechaRegistro": "2026-07-29",
-  "tipoMovimiento": "Vendor",
-  "numeroCuenta": "901710024",
-  "codigoFormaPago": "TRANSF",
+  "fechaDeRegistro": "2026-07-29",
+  "tipoDeMovimiento": "Vendor",
+  "numeroDeCuenta": "901710024",
+  "codigoFormaDePago": "TRANSF",
   "importe": -207421.30,
-  "tipoContrapartida": "Bank Account",
-  "cuentaContrapartida": "001"
+  "tipoDeContrapartida": "Bank Account",
+  "cuentaDeContrapartida": "001"
 }
 ```
 
-La respuesta incluye `id` y `numeroLinea` asignados. Para **leer** el diario:
-`GET .../paymentJournalLines` (opcionalmente `?$filter=numeroCuenta eq '901710024'`).
+La respuesta incluye `id` y `numeroDeLinea` asignados. Para **leer** el diario:
+`GET .../paymentJournalLines` (opcionalmente `?$filter=numeroDeCuenta eq '901710024'`).
 
 > **Permisos:** usa el conjunto **"BDT Pagos API"** ([Per50100.PagosAPI.al](permissions/Per50100.PagosAPI.al)),
 > que ya incluye `page "BDT Payment Journal Line API" = X` y `tabledata 81 = RIMD`.

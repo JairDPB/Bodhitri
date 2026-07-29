@@ -59,6 +59,8 @@ page 50131 "BDT Payment Journal Line API"
             repeater(Lines)
             {
                 // --- Clave estable para Power Automate (no editable) -----------
+                // 'id' se deja como 'id': es la clave OData (SystemId) que el
+                // conector de Business Central usa para leer/editar/borrar la línea.
                 field(id; Rec.SystemId)
                 {
                     Caption = 'Id';
@@ -66,50 +68,50 @@ page 50131 "BDT Payment Journal Line API"
                 }
 
                 // --- Campos solicitados (orden = orden de validación) ----------
-                field(fechaRegistro; Rec."Posting Date")
+                field(fechaDeRegistro; Rec."Posting Date")
                 {
-                    Caption = 'Fecha registro';
+                    Caption = 'Fecha de registro';
                 }
-                field(tipoMovimiento; Rec."Account Type")
+                field(tipoDeMovimiento; Rec."Account Type")
                 {
-                    Caption = 'Tipo mov.';
+                    Caption = 'Tipo de movimiento';
                 }
-                field(numeroCuenta; Rec."Account No.")
+                field(numeroDeCuenta; Rec."Account No.")
                 {
-                    Caption = 'N.º cuenta';
+                    Caption = 'Número de cuenta';
                 }
-                field(codigoFormaPago; Rec."Payment Method Code")
+                field(codigoFormaDePago; Rec."Payment Method Code")
                 {
-                    Caption = 'Cód. forma pago';
+                    Caption = 'Código de forma de pago';
                 }
                 field(importe; Rec.Amount)
                 {
                     Caption = 'Importe';
                 }
-                field(tipoContrapartida; Rec."Bal. Account Type")
+                field(tipoDeContrapartida; Rec."Bal. Account Type")
                 {
-                    Caption = 'Tipo contrapartida';
+                    Caption = 'Tipo de contrapartida';
                 }
-                field(cuentaContrapartida; Rec."Bal. Account No.")
+                field(cuentaDeContrapartida; Rec."Bal. Account No.")
                 {
-                    Caption = 'Cta. contrapartida';
+                    Caption = 'Cuenta de contrapartida';
                 }
                 // Campo de la localización Colombia (D365LATAM), tabla ext.
                 // "D365L CO GenJournalLineExt" (campo 66837, Code[35]).
-                field(numeroTercero; Rec."D365L CO Third No.")
+                field(numeroDeTercero; Rec."D365L CO Third No.")
                 {
-                    Caption = 'N.º tercero';
+                    Caption = 'Número de tercero';
                 }
 
                 // --- Técnicos (solo lectura) -----------------------------------
                 // El servidor asigna el "Line No." en OnInsertRecord; se expone
                 // solo lectura para que el flujo lo lea de vuelta tras crear.
-                field(numeroLinea; Rec."Line No.")
+                field(numeroDeLinea; Rec."Line No.")
                 {
-                    Caption = 'N.º línea';
+                    Caption = 'Número de línea';
                     Editable = false;
                 }
-                field(lastModifiedDateTime; Rec.SystemModifiedAt)
+                field(ultimaModificacion; Rec.SystemModifiedAt)
                 {
                     Caption = 'Última modificación';
                     Editable = false;
