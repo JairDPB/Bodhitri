@@ -18,5 +18,6 @@ permissionset 50100 "BDT Pagos API"
         tabledata "Gen. Journal Line" = RIMD,
         tabledata Item = RM,
         page "BDT Gen. Journal Line API" = X,
+        page "BDT Payment Journal Line API" = X,
         page "BDT Item API" = X;
 }

@@ -27,7 +27,7 @@
 // Registro/posting: queda FUERA de esta API (se registra en BC). Esta entidad
 // solo CREA/lee/edita/borra líneas no registradas.
 // =============================================================================
-page 50100 "BDT Gen. Journal Line API"
+page 50132 "BDT Gen. Journal Line API"
 {
     PageType = API;
     Caption = 'Gen. Journal Lines API';

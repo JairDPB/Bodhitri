@@ -165,9 +165,11 @@ La respuesta incluye `id` (SystemId) y `numeroLinea` ya asignados.
 - **Publicar:** `F5` (publish + debug) o `Ctrl+F5` (publish sin debug) contra el sandbox
   de [.vscode/launch.json](.vscode/launch.json).
 - Rango de IDs del proyecto: **50100–50149** (`app.json`). Objetos: página `50100`
-  (diario), página `50101` (Item), permission set `50100`.
+  (diario, escritura), página `50101` (Item), página `50102` (diario de pagos
+  PAGOS/TESORERIA), permission set `50100`.
 - Tras publicar, **refresca la conexión de Business Central en Power Automate** para que
-  aparezcan las APIs `bodhitri/pagos` (`genJournalLines`) y `bodhitri/maestros` (`items`).
+  aparezcan las APIs `bodhitri/pagos` (`genJournalLines`, `paymentJournalLines`) y
+  `bodhitri/maestros` (`items`).
 
 ---
 
@@ -213,3 +215,67 @@ La **dependencia ya está declarada** en `app.json` (D365LATAM - Colombia Locali
 > **Dependencias añadidas:** este proyecto ahora depende de `LyLVariantsExt` (L&L Consultores,
 > por `LyL OrigenLP`) y de `D365LATAM - Colombia Localization` (por `codGrupoImpuestoVenta`). La
 > extensión no se podrá instalar en un entorno que no tenga ambas instaladas.
+
+---
+
+## 8. API del Diario de pagos (PAGOS / TESORERIA)
+
+Expone la tabla **Gen. Journal Line (81)** **filtrada al diario de pagos** (plantilla
+`PAGOS`, sección `TESORERIA`) con un conjunto reducido de campos, para **leer y
+escribir** sus líneas desde Power Automate. A diferencia de `genJournalLines` (§1),
+esta entidad **solo** ve ese diario y **no** el resto de diarios.
+
+- **Objeto:** `page 50102 "BDT Payment Journal Line API"` → [Pag50102.PaymentJournalLineAPI.al](pages/Pag50102.PaymentJournalLineAPI.al)
+- **Tabla origen:** `Gen. Journal Line` (81), filtrada por `SourceTableView`.
+- **Clave OData:** `SystemId` (`id`). El `numeroLinea` (N.º línea) lo asigna el servidor.
+- **Endpoint:**
+
+```
+https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/bodhitri/pagos/v1.0/companies({companyId})/paymentJournalLines
+```
+
+### Campos expuestos
+
+| Propiedad API (JSON) | Caption BC          | Campo tabla 81 (id)          | Tipo      | Notas |
+|----------------------|---------------------|------------------------------|-----------|-------|
+| `id`                 | Id                  | SystemId                     | GUID      | Clave (solo lectura). |
+| `fechaRegistro`      | Fecha registro      | Posting Date (5)             | Date      | Si va vacío usa la fecha de trabajo. |
+| `tipoMovimiento`     | Tipo mov.           | Account Type (3)             | Enum      | `G/L Account`, `Vendor`, `Bank Account`… |
+| `numeroCuenta`       | N.º cuenta          | Account No. (4)              | Code[20]  | N.º del proveedor/cliente/cuenta. |
+| `codigoFormaPago`    | Cód. forma pago     | Payment Method Code (172)    | Code[10]  | P. ej. `TRANSF`. |
+| `importe`            | Importe             | Amount (13)                  | Decimal   | Signo según contabilidad. |
+| `tipoContrapartida`  | Tipo contrapartida  | Bal. Account Type (63)       | Enum      | Banco: `Bank Account`. |
+| `cuentaContrapartida`| Cta. contrapartida  | Bal. Account No. (11)        | Code[20]  | N.º de banco/cuenta. |
+| `numeroTercero`      | N.º tercero         | D365L CO Third No. (66837)   | Code[35]  | Localización Colombia (D365LATAM). |
+| `numeroLinea`        | N.º línea           | Line No. (2)                 | Integer   | Solo lectura. Lo asigna el servidor. |
+| `lastModifiedDateTime`| Última modificación| SystemModifiedAt             | DateTime  | Solo lectura. |
+
+> **Plantilla/Sección fijas:** no se envían desde el flujo. La API los fija a
+> `PAGOS`/`TESORERIA` (filtro en `SourceTableView` para leer, y en `OnInsertRecord`
+> al crear). Para apuntar a otro diario, cambia esos dos literales en
+> [Pag50102.PaymentJournalLineAPI.al](pages/Pag50102.PaymentJournalLineAPI.al)
+> (deben coincidir en ambos sitios).
+
+### Ejemplo (POST) — crear una línea de pago
+
+```json
+{
+  "fechaRegistro": "2026-07-29",
+  "tipoMovimiento": "Vendor",
+  "numeroCuenta": "901710024",
+  "codigoFormaPago": "TRANSF",
+  "importe": -207421.30,
+  "tipoContrapartida": "Bank Account",
+  "cuentaContrapartida": "001"
+}
+```
+
+La respuesta incluye `id` y `numeroLinea` asignados. Para **leer** el diario:
+`GET .../paymentJournalLines` (opcionalmente `?$filter=numeroCuenta eq '901710024'`).
+
+> **Permisos:** usa el conjunto **"BDT Pagos API"** ([Per50100.PagosAPI.al](permissions/Per50100.PagosAPI.al)),
+> que ya incluye `page "BDT Payment Journal Line API" = X` y `tabledata 81 = RIMD`.
+
+> **Símbolo D365LATAM:** el campo `numeroTercero` usa `"D365L CO Third No."` de la
+> localización Colombia. El símbolo **ya está** en `.alpackages` y el proyecto **compila**
+> (verificado). Solo requiere que la app D365LATAM esté instalada en el entorno destino.

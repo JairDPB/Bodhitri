@@ -31,7 +31,7 @@
 //     3) Descomentar el campo 'salesTaxGroupCode' de abajo (ajustar el nombre
 //        exacto del campo si difiere).
 // =============================================================================
-page 50101 "BDT Item API"
+page 50130 "BDT Item API"
 {
     PageType = API;
     Caption = 'Items API';

@@ -54,7 +54,8 @@ Formatos Bodhitri/
 ├─ Reports/
 │  └─ Cotización Venta Ezgo.rdl          # Layout RDLC (versionado en la app)
 ├─ Setup/
-│  └─ BDTBuscarAppObjeto.Page.al         # page 50149: utilidad de diagnóstico
+│  ├─ BDTBuscarAppObjeto.Page.al         # page 50149: utilidad de diagnóstico
+│  └─ BDTImportarImgItems.Page.al        # page 50101: carga masiva de imágenes (ZIP)
 └─ README.md
 ```
 
@@ -82,6 +83,20 @@ Archivo: [`Setup/BDTBuscarAppObjeto.Page.al`](Setup/BDTBuscarAppObjeto.Page.al)
 Herramienta de diagnóstico: dado un ID de objeto (por defecto `50201`), indica **qué
 extensión instalada** lo publica (usa `AllObjWithCaption` → `NAV App Installed App`).
 Búscala en el ERP como *"Buscar App de Objeto"*. Puede eliminarse en producción.
+
+### `page 50101 "BDT Importar Img Items"` (carga masiva de imágenes)
+Archivo: [`Setup/BDTImportarImgItems.Page.al`](Setup/BDTImportarImgItems.Page.al)
+
+Carga **masiva** de imágenes de productos desde un `.ZIP`. Cada archivo del ZIP debe
+llamarse igual que el **N.º del producto** (`1000.jpg`, `ART-005.png`, …). Descomprime en
+memoria (`Codeunit "Data Compression"`) y asigna cada imagen al `Item` correspondiente vía
+`Item.Picture.ImportStream`. Opción *"Reemplazar imagen existente"*. Al terminar muestra un
+resumen (importadas / no encontradas / omitidas). Búscala en el ERP como
+*"Importar Imágenes de Productos (ZIP)"*.
+
+> **Nota:** los paquetes de configuración (RapidStart) y "Editar en Excel" **no** cargan
+> imágenes; por eso se implementa este importador. Alternativa para integración: la API
+> estándar `PATCH .../items({id})/picture`.
 
 ---
 
