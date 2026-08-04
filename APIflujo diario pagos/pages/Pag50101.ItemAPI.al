@@ -101,7 +101,10 @@ page 50130 "BDT Item API"
                 {
                     Caption = 'Política de Ensamblado';
                 }
-
+                field(sistemaReposicion; Rec."Replenishment System")
+                {
+                    Caption = 'Sistema de Reposición';
+                }
                 // --- D365L CO Sales Tax Group Code (D365LATAM Colombia Loc.) ----
                 // Dependencia declarada en app.json. Requiere "AL: Download Symbols"
                 // para traer el símbolo de D365LATAM a .alpackages y poder compilar.
