@@ -50,9 +50,11 @@ dispone del código fuente de esa extensión, este proyecto **extiende** dicho r
 Formatos Bodhitri/
 ├─ app.json                              # Manifiesto: dependencias, rango de IDs, runtime
 ├─ Reports Code/
-│  └─ CotizacionVenta.al                 # reportextension 50100 (lógica + layout)
+│  ├─ CotizacionVenta.al                 # reportextension 50100 (columnas imagen + 2 layouts)
+│  └─ CotizacionVentaEcuador.al          # (sin objeto) el layout Ecuador vive en el 50100
 ├─ Reports/
-│  └─ Cotización Venta Ezgo.rdl          # Layout RDLC (versionado en la app)
+│  ├─ Cotización Venta Ezgo.rdl          # Layout RDLC — Colombia
+│  └─ COTIZACION EZGO ECUADOR.rdl        # Layout RDLC — Ecuador
 ├─ Setup/
 │  ├─ BDTBuscarAppObjeto.Page.al         # page 50149: utilidad de diagnóstico
 │  └─ BDTImportarImgItems.Page.al        # page 50101: carga masiva de imágenes (ZIP)
@@ -73,8 +75,9 @@ Archivo: [`Reports Code/CotizacionVenta.al`](Reports%20Code/CotizacionVenta.al)
 - **dataset** → `add(Line)`: agrega las columnas
   - `ItemPicture_Line` → imagen del producto en Base64.
   - `ItemPictureMime_Line` → tipo MIME real de la imagen.
-- **rendering** → publica el layout **`CotizacionVentaEzgoBDT`** apuntando a
-  `Reports/Cotización Venta Ezgo.rdl`.
+- **rendering** → publica **dos** layouts del mismo report 50201:
+  - **`CotizacionVentaEzgoBDT`** → `Reports/Cotización Venta Ezgo.rdl` (Colombia)
+  - **`CotizacionVentaEcuadorBDT`** → `Reports/COTIZACION EZGO ECUADOR.rdl` (Ecuador)
 - **Funciones auxiliares**: `GetItemPictureBase64()` y `GetItemPictureMime()`.
 
 ### `page 50149 "BDT Buscar App Objeto"` (utilidad)

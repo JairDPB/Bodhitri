@@ -37,6 +37,15 @@ reportextension 50100 "Cotizacion Venta Img" extends "LyL Rep.CotizacionVenta"
             LayoutFile = 'Reports/Cotización Venta Ezgo.rdl';
             Caption = 'Cotización Venta Ezgo (Bodhitrí)';
         }
+
+        // Variante ECUADOR: mismo report 50201, distinto diseño. Ambos layouts viven aquí
+        // porque las columnas de imagen solo se agregan una vez al dataset del report base.
+        layout("CotizacionVentaEcuadorBDT")
+        {
+            Type = RDLC;
+            LayoutFile = 'Reports/COTIZACION EZGO ECUADOR.rdl';
+            Caption = 'Cotización Venta Ezgo (ECUADOR)';
+        }
     }
 
     local procedure GetItemPictureBase64(SalesLine: Record "Sales Line"): Text
