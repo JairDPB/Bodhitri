@@ -1,0 +1,712 @@
+[
+  {
+    "referencia": "M2621100000003",
+    "imagen_original": "xl/media/image21.png",
+    "archivo_destino": "M2621100000003.png",
+    "hoja": "BLOKS",
+    "fila": 10,
+    "ancho": 193,
+    "alto": 157,
+    "bytes": 14949
+  },
+  {
+    "referencia": "M2622100000005",
+    "imagen_original": "xl/media/image22.png",
+    "archivo_destino": "M2622100000005.png",
+    "hoja": "BLOKS",
+    "fila": 11,
+    "ancho": 181,
+    "alto": 159,
+    "bytes": 19749
+  },
+  {
+    "referencia": "M2621200000004",
+    "imagen_original": "xl/media/image23.png",
+    "archivo_destino": "M2621200000004.png",
+    "hoja": "BLOKS",
+    "fila": 12,
+    "ancho": 203,
+    "alto": 147,
+    "bytes": 21435
+  },
+  {
+    "referencia": "M2622200000006",
+    "imagen_original": "xl/media/image24.png",
+    "archivo_destino": "M2622200000006.png",
+    "hoja": "BLOKS",
+    "fila": 13,
+    "ancho": 208,
+    "alto": 153,
+    "bytes": 22703
+  },
+  {
+    "referencia": "M2623100000001",
+    "imagen_original": "xl/media/image25.png",
+    "archivo_destino": "M2623100000001.png",
+    "hoja": "BLOKS",
+    "fila": 14,
+    "ancho": 119,
+    "alto": 153,
+    "bytes": 14894
+  },
+  {
+    "referencia": "M2623200000002",
+    "imagen_original": "xl/media/image26.png",
+    "archivo_destino": "M2623200000002.png",
+    "hoja": "BLOKS",
+    "fila": 15,
+    "ancho": 183,
+    "alto": 142,
+    "bytes": 23250
+  },
+  {
+    "referencia": "M2620100000007",
+    "imagen_original": "xl/media/image27.png",
+    "archivo_destino": "M2620100000007.png",
+    "hoja": "BLOKS",
+    "fila": 16,
+    "ancho": 137,
+    "alto": 144,
+    "bytes": 14732
+  },
+  {
+    "referencia": "M2622700000008",
+    "imagen_original": "xl/media/image28.png",
+    "archivo_destino": "M2622700000008.png",
+    "hoja": "BLOKS",
+    "fila": 17,
+    "ancho": 196,
+    "alto": 160,
+    "bytes": 22292
+  },
+  {
+    "referencia": "SFBD1P31115TNBJ",
+    "imagen_original": "xl/media/image1.png",
+    "archivo_destino": "SFBD1P31115TNBJ.png",
+    "hoja": "BOLDY",
+    "fila": 9,
+    "ancho": 161,
+    "alto": 110,
+    "bytes": 9635
+  },
+  {
+    "referencia": "SFBD1P31116TPN",
+    "imagen_original": "xl/media/image2.png",
+    "archivo_destino": "SFBD1P31116TPN.png",
+    "hoja": "BOLDY",
+    "fila": 10,
+    "ancho": 151,
+    "alto": 156,
+    "bytes": 21096
+  },
+  {
+    "referencia": "SFBD1P31117TNBJ",
+    "imagen_original": "xl/media/image3.png",
+    "archivo_destino": "SFBD1P31117TNBJ.png",
+    "hoja": "BOLDY",
+    "fila": 11,
+    "ancho": 145,
+    "alto": 132,
+    "bytes": 21600
+  },
+  {
+    "referencia": "SFBD1P31118TRBJ",
+    "imagen_original": "xl/media/image4.png",
+    "archivo_destino": "SFBD1P31118TRBJ.png",
+    "hoja": "BOLDY",
+    "fila": 12,
+    "ancho": 168,
+    "alto": 159,
+    "bytes": 28504
+  },
+  {
+    "referencia": "PRB31125TP",
+    "imagen_original": "xl/media/image5.png",
+    "archivo_destino": "PRB31125TP.png",
+    "hoja": "BOLDY",
+    "fila": 13,
+    "ancho": 219,
+    "alto": 148,
+    "bytes": 23465
+  },
+  {
+    "referencia": "SFBD2P31126TPSB",
+    "imagen_original": "xl/media/image6.png",
+    "archivo_destino": "SFBD2P31126TPSB.png",
+    "hoja": "BOLDY",
+    "fila": 14,
+    "ancho": 214,
+    "alto": 155,
+    "bytes": 32638
+  },
+  {
+    "referencia": "SFBD2P31127TPBR",
+    "imagen_original": "xl/media/image8.png",
+    "archivo_destino": "SFBD2P31127TPBR.png",
+    "hoja": "BOLDY",
+    "fila": 15,
+    "ancho": 206,
+    "alto": 144,
+    "bytes": 32109
+  },
+  {
+    "referencia": "SFBD2P31128TRBJ",
+    "imagen_original": "xl/media/image9.png",
+    "archivo_destino": "SFBD2P31128TRBJ.png",
+    "hoja": "BOLDY",
+    "fila": 16,
+    "ancho": 204,
+    "alto": 147,
+    "bytes": 30849
+  },
+  {
+    "referencia": "PRB31105TP",
+    "imagen_original": "xl/media/image10.png",
+    "archivo_destino": "PRB31105TP.png",
+    "hoja": "BOLDY",
+    "fila": 17,
+    "ancho": 188,
+    "alto": 141,
+    "bytes": 20242
+  },
+  {
+    "referencia": "BUBDY31151TM",
+    "imagen_original": "xl/media/image11.png",
+    "archivo_destino": "BUBDY31151TM.png",
+    "hoja": "BOLDY",
+    "fila": 18,
+    "ancho": 115,
+    "alto": 134,
+    "bytes": 9465
+  },
+  {
+    "referencia": "PBDY31161TMNV",
+    "imagen_original": "xl/media/image12.png",
+    "archivo_destino": "PBDY31161TMNV.png",
+    "hoja": "BOLDY",
+    "fila": 19,
+    "ancho": 89,
+    "alto": 156,
+    "bytes": 10198
+  },
+  {
+    "referencia": "PBDY31162TMNV",
+    "imagen_original": "xl/media/image13.png",
+    "archivo_destino": "PBDY31162TMNV.png",
+    "hoja": "BOLDY",
+    "fila": 20,
+    "ancho": 64,
+    "alto": 150,
+    "bytes": 8939
+  },
+  {
+    "referencia": "PBDY31363PTMRNY",
+    "imagen_original": "xl/media/image14.png",
+    "archivo_destino": "PBDY31363PTMRNY.png",
+    "hoja": "BOLDY",
+    "fila": 21,
+    "ancho": 79,
+    "alto": 150,
+    "bytes": 6903
+  },
+  {
+    "referencia": "APBD31181SUME",
+    "imagen_original": "xl/media/image15.png",
+    "archivo_destino": "APBD31181SUME.png",
+    "hoja": "BOLDY",
+    "fila": 22,
+    "ancho": 125,
+    "alto": 137,
+    "bytes": 11753
+  },
+  {
+    "referencia": "MBA31185SMEMROD",
+    "imagen_original": "xl/media/image16.png",
+    "archivo_destino": "MBA31185SMEMROD.png",
+    "hoja": "BOLDY",
+    "fila": 23,
+    "ancho": 144,
+    "alto": 148,
+    "bytes": 15096
+  },
+  {
+    "referencia": "M2611000101001",
+    "imagen_original": "xl/media/image18.png",
+    "archivo_destino": "M2611000101001.png",
+    "hoja": "DOMOS",
+    "fila": 10,
+    "ancho": 160,
+    "alto": 144,
+    "bytes": 14581
+  },
+  {
+    "referencia": "M2611100101001",
+    "imagen_original": "xl/media/image19.png",
+    "archivo_destino": "M2611100101001.png",
+    "hoja": "DOMOS",
+    "fila": 11,
+    "ancho": 191,
+    "alto": 156,
+    "bytes": 15935
+  },
+  {
+    "referencia": "M360713SH00A01",
+    "imagen_original": "xl/media/image46.png",
+    "archivo_destino": "M360713SH00A01.png",
+    "hoja": "DUO",
+    "fila": 9,
+    "ancho": 128,
+    "alto": 156,
+    "bytes": 12142
+  },
+  {
+    "referencia": "M3607200088003",
+    "imagen_original": "xl/media/image47.png",
+    "archivo_destino": "M3607200088003.png",
+    "hoja": "DUO",
+    "fila": 10,
+    "ancho": 117,
+    "alto": 151,
+    "bytes": 10455
+  },
+  {
+    "referencia": "M3617200007001",
+    "imagen_original": "xl/media/image48.png",
+    "archivo_destino": "M3617200007001.png",
+    "hoja": "DUO",
+    "fila": 11,
+    "ancho": 107,
+    "alto": 146,
+    "bytes": 8913
+  },
+  {
+    "referencia": "M3607400006001",
+    "imagen_original": "xl/media/image49.png",
+    "archivo_destino": "M3607400006001.png",
+    "hoja": "DUO",
+    "fila": 12,
+    "ancho": 118,
+    "alto": 151,
+    "bytes": 11534
+  },
+  {
+    "referencia": "M3617400006001",
+    "imagen_original": "xl/media/image50.png",
+    "archivo_destino": "M3617400006001.png",
+    "hoja": "DUO",
+    "fila": 13,
+    "ancho": 153,
+    "alto": 160,
+    "bytes": 11647
+  },
+  {
+    "referencia": "M3627200007001",
+    "imagen_original": "xl/media/image51.png",
+    "archivo_destino": "M3627200007001.png",
+    "hoja": "DUO",
+    "fila": 14,
+    "ancho": 106,
+    "alto": 158,
+    "bytes": 13087
+  },
+  {
+    "referencia": "M5200600000001481",
+    "imagen_original": "xl/media/image53.png",
+    "archivo_destino": "M5200600000001481.png",
+    "hoja": "INAUT",
+    "fila": 10,
+    "ancho": 126,
+    "alto": 118,
+    "bytes": 11798
+  },
+  {
+    "referencia": "M5210600000001482",
+    "imagen_original": "xl/media/image54.png",
+    "archivo_destino": "M5210600000001482.png",
+    "hoja": "INAUT",
+    "fila": 11,
+    "ancho": 137,
+    "alto": 125,
+    "bytes": 10328
+  },
+  {
+    "referencia": "M46006P00000A4",
+    "imagen_original": "xl/media/image56.png",
+    "archivo_destino": "M46006P00000A4.png",
+    "hoja": "MATCH",
+    "fila": 10,
+    "ancho": 144,
+    "alto": 195,
+    "bytes": 5906
+  },
+  {
+    "referencia": "M46066P00000A4",
+    "imagen_original": "xl/media/image57.png",
+    "archivo_destino": "M46066P00000A4.png",
+    "hoja": "MATCH",
+    "fila": 11,
+    "ancho": 110,
+    "alto": 139,
+    "bytes": 7912
+  },
+  {
+    "referencia": "M46076P00000A4",
+    "imagen_original": "xl/media/image58.png",
+    "archivo_destino": "M46076P00000A4.png",
+    "hoja": "MATCH",
+    "fila": 12,
+    "ancho": 117,
+    "alto": 143,
+    "bytes": 9686
+  },
+  {
+    "referencia": "M46906P00027A4",
+    "imagen_original": "xl/media/image59.png",
+    "archivo_destino": "M46906P00027A4.png",
+    "hoja": "MATCH",
+    "fila": 13,
+    "ancho": 106,
+    "alto": 134,
+    "bytes": 6820
+  },
+  {
+    "referencia": "M46966P00027A4",
+    "imagen_original": "xl/media/image60.png",
+    "archivo_destino": "M46966P00027A4.png",
+    "hoja": "MATCH",
+    "fila": 14,
+    "ancho": 125,
+    "alto": 138,
+    "bytes": 9397
+  },
+  {
+    "referencia": "M46976P00027A4",
+    "imagen_original": "xl/media/image61.png",
+    "archivo_destino": "M46976P00027A4.png",
+    "hoja": "MATCH",
+    "fila": 15,
+    "ancho": 154,
+    "alto": 154,
+    "bytes": 11115
+  },
+  {
+    "referencia": "M46007A00000A4",
+    "imagen_original": "xl/media/image62.png",
+    "archivo_destino": "M46007A00000A4.png",
+    "hoja": "MATCH",
+    "fila": 16,
+    "ancho": 118,
+    "alto": 146,
+    "bytes": 6450
+  },
+  {
+    "referencia": "M46067A00000A4",
+    "imagen_original": "xl/media/image63.png",
+    "archivo_destino": "M46067A00000A4.png",
+    "hoja": "MATCH",
+    "fila": 17,
+    "ancho": 125,
+    "alto": 147,
+    "bytes": 8554
+  },
+  {
+    "referencia": "M46077A00000A4",
+    "imagen_original": "xl/media/image64.png",
+    "archivo_destino": "M46077A00000A4.png",
+    "hoja": "MATCH",
+    "fila": 18,
+    "ancho": 117,
+    "alto": 136,
+    "bytes": 10068
+  },
+  {
+    "referencia": "M46907A00027A4",
+    "imagen_original": "xl/media/image65.png",
+    "archivo_destino": "M46907A00027A4.png",
+    "hoja": "MATCH",
+    "fila": 19,
+    "ancho": 135,
+    "alto": 158,
+    "bytes": 7612
+  },
+  {
+    "referencia": "M46967A00027A4",
+    "imagen_original": "xl/media/image66.png",
+    "archivo_destino": "M46967A00027A4.png",
+    "hoja": "MATCH",
+    "fila": 20,
+    "ancho": 155,
+    "alto": 149,
+    "bytes": 9940
+  },
+  {
+    "referencia": "M46977A00027A4",
+    "imagen_original": "xl/media/image67.png",
+    "archivo_destino": "M46977A00027A4.png",
+    "hoja": "MATCH",
+    "fila": 21,
+    "ancho": 138,
+    "alto": 146,
+    "bytes": 11184
+  },
+  {
+    "referencia": "M46406O00027L1",
+    "imagen_original": "xl/media/image68.png",
+    "archivo_destino": "M46406O00027L1.png",
+    "hoja": "MATCH",
+    "fila": 22,
+    "ancho": 122,
+    "alto": 138,
+    "bytes": 12139
+  },
+  {
+    "referencia": "M46466O00027L1",
+    "imagen_original": "xl/media/image69.png",
+    "archivo_destino": "M46466O00027L1.png",
+    "hoja": "MATCH",
+    "fila": 23,
+    "ancho": 163,
+    "alto": 147,
+    "bytes": 13444
+  },
+  {
+    "referencia": "M46476O00027L1",
+    "imagen_original": "xl/media/image70.png",
+    "archivo_destino": "M46476O00027L1.png",
+    "hoja": "MATCH",
+    "fila": 24,
+    "ancho": 161,
+    "alto": 154,
+    "bytes": 14310
+  },
+  {
+    "referencia": "M46206N00000L1",
+    "imagen_original": "xl/media/image71.png",
+    "archivo_destino": "M46206N00000L1.png",
+    "hoja": "MATCH",
+    "fila": 25,
+    "ancho": 130,
+    "alto": 143,
+    "bytes": 8981
+  },
+  {
+    "referencia": "M46266N00000L1",
+    "imagen_original": "xl/media/image72.png",
+    "archivo_destino": "M46266N00000L1.png",
+    "hoja": "MATCH",
+    "fila": 26,
+    "ancho": 153,
+    "alto": 158,
+    "bytes": 10851
+  },
+  {
+    "referencia": "M46276N00000L1",
+    "imagen_original": "xl/media/image73.png",
+    "archivo_destino": "M46276N00000L1.png",
+    "hoja": "MATCH",
+    "fila": 27,
+    "ancho": 110,
+    "alto": 149,
+    "bytes": 11905
+  },
+  {
+    "referencia": "M46306M00000L1",
+    "imagen_original": "xl/media/image74.png",
+    "archivo_destino": "M46306M00000L1.png",
+    "hoja": "MATCH",
+    "fila": 28,
+    "ancho": 153,
+    "alto": 150,
+    "bytes": 8764
+  },
+  {
+    "referencia": "M46366M00000L1",
+    "imagen_original": "xl/media/image75.png",
+    "archivo_destino": "M46366M00000L1.png",
+    "hoja": "MATCH",
+    "fila": 29,
+    "ancho": 154,
+    "alto": 146,
+    "bytes": 10279
+  },
+  {
+    "referencia": "M46376M00000L1",
+    "imagen_original": "xl/media/image76.png",
+    "archivo_destino": "M46376M00000L1.png",
+    "hoja": "MATCH",
+    "fila": 30,
+    "ancho": 138,
+    "alto": 142,
+    "bytes": 11692
+  },
+  {
+    "referencia": "M46020P00000A4",
+    "imagen_original": "xl/media/image77.png",
+    "archivo_destino": "M46020P00000A4.png",
+    "hoja": "MATCH",
+    "fila": 31,
+    "ancho": 126,
+    "alto": 158,
+    "bytes": 6966
+  },
+  {
+    "referencia": "M46060P00000A4",
+    "imagen_original": "xl/media/image78.png",
+    "archivo_destino": "M46060P00000A4.png",
+    "hoja": "MATCH",
+    "fila": 32,
+    "ancho": 126,
+    "alto": 166,
+    "bytes": 9146
+  },
+  {
+    "referencia": "M46070P00000A4",
+    "imagen_original": "xl/media/image79.png",
+    "archivo_destino": "M46070P00000A4.png",
+    "hoja": "MATCH",
+    "fila": 33,
+    "ancho": 134,
+    "alto": 150,
+    "bytes": 10196
+  },
+  {
+    "referencia": "M4835100000001",
+    "imagen_original": "xl/media/image30.png",
+    "archivo_destino": "M4835100000001.png",
+    "hoja": "PIBOU",
+    "fila": 9,
+    "ancho": 150,
+    "alto": 150,
+    "bytes": 14562
+  },
+  {
+    "referencia": "M4845100000001",
+    "imagen_original": "xl/media/image31.png",
+    "archivo_destino": "M4845100000001.png",
+    "hoja": "PIBOU",
+    "fila": 10,
+    "ancho": 142,
+    "alto": 150,
+    "bytes": 17101
+  },
+  {
+    "referencia": "M4875100000001",
+    "imagen_original": "xl/media/image32.png",
+    "archivo_destino": "M4875100000001.png",
+    "hoja": "PIBOU",
+    "fila": 11,
+    "ancho": 104,
+    "alto": 141,
+    "bytes": 13546
+  },
+  {
+    "referencia": "M4835200000001",
+    "imagen_original": "xl/media/image33.png",
+    "archivo_destino": "M4835200000001.png",
+    "hoja": "PIBOU",
+    "fila": 12,
+    "ancho": 122,
+    "alto": 153,
+    "bytes": 19839
+  },
+  {
+    "referencia": "M4845200000001",
+    "imagen_original": "xl/media/image34.png",
+    "archivo_destino": "M4845200000001.png",
+    "hoja": "PIBOU",
+    "fila": 13,
+    "ancho": 152,
+    "alto": 159,
+    "bytes": 20391
+  },
+  {
+    "referencia": "M4875200000001",
+    "imagen_original": "xl/media/image35.png",
+    "archivo_destino": "M4875200000001.png",
+    "hoja": "PIBOU",
+    "fila": 14,
+    "ancho": 120,
+    "alto": 144,
+    "bytes": 16649
+  },
+  {
+    "referencia": "M3650500013024",
+    "imagen_original": "xl/media/image37.png",
+    "archivo_destino": "M3650500013024.png",
+    "hoja": "TALK",
+    "fila": 10,
+    "ancho": 135,
+    "alto": 151,
+    "bytes": 16761
+  },
+  {
+    "referencia": "M3650500013012",
+    "imagen_original": "xl/media/image38.png",
+    "archivo_destino": "M3650500013012.png",
+    "hoja": "TALK",
+    "fila": 11,
+    "ancho": 138,
+    "alto": 139,
+    "bytes": 13319
+  },
+  {
+    "referencia": "M3650500013036",
+    "imagen_original": "xl/media/image39.png",
+    "archivo_destino": "M3650500013036.png",
+    "hoja": "TALK",
+    "fila": 12,
+    "ancho": 155,
+    "alto": 148,
+    "bytes": 11013
+  },
+  {
+    "referencia": "M3650500013003",
+    "imagen_original": "xl/media/image40.png",
+    "archivo_destino": "M3650500013003.png",
+    "hoja": "TALK",
+    "fila": 13,
+    "ancho": 133,
+    "alto": 139,
+    "bytes": 14054
+  },
+  {
+    "referencia": "D3655500013002",
+    "imagen_original": "xl/media/image41.png",
+    "archivo_destino": "D3655500013002.png",
+    "hoja": "TALK",
+    "fila": 14,
+    "ancho": 130,
+    "alto": 143,
+    "bytes": 20916
+  },
+  {
+    "referencia": "D3657524013009",
+    "imagen_original": "xl/media/image42.png",
+    "archivo_destino": "D3657524013009.png",
+    "hoja": "TALK",
+    "fila": 15,
+    "ancho": 153,
+    "alto": 148,
+    "bytes": 21361
+  },
+  {
+    "referencia": "D3656524013010",
+    "imagen_original": "xl/media/image43.png",
+    "archivo_destino": "D3656524013010.png",
+    "hoja": "TALK",
+    "fila": 16,
+    "ancho": 168,
+    "alto": 152,
+    "bytes": 29008
+  },
+  {
+    "referencia": "MO1180102",
+    "imagen_original": "xl/media/image44.png",
+    "archivo_destino": "MO1180102.png",
+    "hoja": "TALK",
+    "fila": 17,
+    "ancho": 110,
+    "alto": 149,
+    "bytes": 4516
+  }
+]

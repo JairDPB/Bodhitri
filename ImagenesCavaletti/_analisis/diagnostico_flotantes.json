@@ -1,0 +1,120 @@
+{
+  "archivo_fuente": "C:\\Users\\jaduj\\Documents\\PORTAFOLIO DYNAMICS - CAVALETTI .xlsx",
+  "total_imagenes_media": 158,
+  "total_anclajes_flotantes": 79,
+  "total_mapeadas": 71,
+  "referencias_unicas": 72,
+  "referencias_cubiertas": 71,
+  "huerfanas": [
+    {
+      "imagen_original": "xl/media/image7.png",
+      "hoja": "BOLDY",
+      "fila": 17,
+      "col": 2,
+      "nombre_forma": "Imagen 8",
+      "motivo": "anclada en columna 2, no en la columna IMAGEN (3)"
+    },
+    {
+      "imagen_original": "xl/media/image17.png",
+      "hoja": "DOMOS",
+      "fila": 10,
+      "col": 2,
+      "nombre_forma": "Imagen 1",
+      "motivo": "anclada en columna 2, no en la columna IMAGEN (3)"
+    },
+    {
+      "imagen_original": "xl/media/image20.png",
+      "hoja": "BLOKS",
+      "fila": 14,
+      "col": 2,
+      "nombre_forma": "Imagen 1",
+      "motivo": "anclada en columna 2, no en la columna IMAGEN (3)"
+    },
+    {
+      "imagen_original": "xl/media/image29.png",
+      "hoja": "PIBOU",
+      "fila": 11,
+      "col": 2,
+      "nombre_forma": "Imagen 2",
+      "motivo": "anclada en columna 2, no en la columna IMAGEN (3)"
+    },
+    {
+      "imagen_original": "xl/media/image36.png",
+      "hoja": "TALK",
+      "fila": 13,
+      "col": 2,
+      "nombre_forma": "Imagen 1",
+      "motivo": "anclada en columna 2, no en la columna IMAGEN (3)"
+    },
+    {
+      "imagen_original": "xl/media/image45.png",
+      "hoja": "DUO",
+      "fila": 11,
+      "col": 2,
+      "nombre_forma": "Imagen 1",
+      "motivo": "anclada en columna 2, no en la columna IMAGEN (3)"
+    },
+    {
+      "imagen_original": "xl/media/image52.png",
+      "hoja": "INAUT",
+      "fila": 10,
+      "col": 2,
+      "nombre_forma": "Imagen 1",
+      "motivo": "anclada en columna 2, no en la columna IMAGEN (3)"
+    },
+    {
+      "imagen_original": "xl/media/image55.png",
+      "hoja": "MATCH",
+      "fila": 13,
+      "col": 2,
+      "nombre_forma": "Imagen 1",
+      "motivo": "anclada en columna 2, no en la columna IMAGEN (3)"
+    }
+  ],
+  "duplicadas": [],
+  "referencias_sin_imagen": [
+    "M2620500101009"
+  ],
+  "por_hoja": {
+    "BOLDY": {
+      "referencias": 15,
+      "anclajes": 16,
+      "exportadas": 15
+    },
+    "DOMOS": {
+      "referencias": 2,
+      "anclajes": 3,
+      "exportadas": 2
+    },
+    "BLOKS": {
+      "referencias": 9,
+      "anclajes": 9,
+      "exportadas": 8
+    },
+    "PIBOU": {
+      "referencias": 6,
+      "anclajes": 7,
+      "exportadas": 6
+    },
+    "TALK": {
+      "referencias": 8,
+      "anclajes": 9,
+      "exportadas": 8
+    },
+    "DUO": {
+      "referencias": 6,
+      "anclajes": 7,
+      "exportadas": 6
+    },
+    "INAUT": {
+      "referencias": 2,
+      "anclajes": 3,
+      "exportadas": 2
+    },
+    "MATCH": {
+      "referencias": 24,
+      "anclajes": 25,
+      "exportadas": 24
+    }
+  }
+}
