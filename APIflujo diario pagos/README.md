@@ -225,7 +225,7 @@ Expone la tabla **Gen. Journal Line (81)** **filtrada al diario de pagos** (plan
 escribir** sus líneas desde Power Automate. A diferencia de `genJournalLines` (§1),
 esta entidad **solo** ve ese diario y **no** el resto de diarios.
 
-- **Objeto:** `page 50102 "BDT Payment Journal Line API"` → [Pag50102.PaymentJournalLineAPI.al](pages/Pag50102.PaymentJournalLineAPI.al)
+- **Objeto:** `page 50131 "BDT Payment Journal Line API"` → [Pag50102.PaymentJournalLineAPI.al](pages/Pag50102.PaymentJournalLineAPI.al)
 - **Tabla origen:** `Gen. Journal Line` (81), filtrada por `SourceTableView`.
 - **Clave OData:** `SystemId` (`id`). El `numeroLinea` (N.º línea) lo asigna el servidor.
 - **Endpoint:**
@@ -247,8 +247,50 @@ https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/bodhi
 | `tipoDeContrapartida`   | Tipo de contrapartida   | Bal. Account Type (63)       | Enum      | Banco: `Bank Account`. |
 | `cuentaDeContrapartida` | Cuenta de contrapartida | Bal. Account No. (11)        | Code[20]  | N.º de banco/cuenta. |
 | `numeroDeTercero`       | Número de tercero       | D365L CO Third No. (66837)   | Code[35]  | Localización Colombia (D365LATAM). |
+| `TipoRegistroGen`       | Tipo de Registro Gen    | Gen. Posting Type (10)       | Enum      | ` `, `Purchase`, `Sale`. |
+| `NDocumentoExterno`     | N.º de documento externo| External Document No. (77)   | Code[35]  | **Autonumerado** desde la serie `EGRESO` si va vacío (ver abajo). |
 | `numeroDeLinea`         | Número de línea         | Line No. (2)                 | Integer   | Solo lectura. Lo asigna el servidor. |
 | `ultimaModificacion`    | Última modificación     | SystemModifiedAt             | DateTime  | Solo lectura. |
+
+### Numeración automática del documento externo
+
+`NDocumentoExterno` (**External Document No.**, campo 77) se **autonumera en el
+servidor** cuando el POST no lo trae (o lo trae vacío):
+
+- `OnInsertRecord` llama a `codeunit 310 "No. Series".GetNextNo('EGRESO', "Posting Date")`
+  — la misma API estándar que usa BC para numerar cualquier documento.
+- Eso **consume** la serie: actualiza `Últ. nº utilizado` / `Últ. fecha utilizada`
+  de la línea de la serie (tabla **No. Series Line** 309). Si el último usado es
+  `EGR7449`, la línea creada recibe **`EGR7450`**.
+- La fecha usada para elegir la línea de la serie es la `fechaDeRegistro` de la
+  línea (ya resuelta a `WorkDate()` si el flujo no la envía).
+- Si el flujo **sí** manda `NDocumentoExterno`, se respeta ese valor y **no** se
+  consume la serie.
+- El número asignado vuelve en la respuesta del POST, así que Power Automate
+  puede guardarlo (p. ej. escribirlo de vuelta en SharePoint).
+
+**Requisitos de configuración en BC** (página *Nos. serie*):
+
+| Requisito | Dónde |
+|---|---|
+| Existe la serie `EGRESO` | `No. Series` (308) |
+| `Numeración predet.` = Sí | `No. Series`.`Default Nos.` |
+| Tiene una línea con `N.º inicial` y `Fecha inicial` ≤ fecha de registro | `No. Series Line` (309) |
+| El usuario de integración tiene el permission set **BDT Pagos API** | incluye `tabledata "No. Series" = R` y `"No. Series Line" = RIMD` |
+
+Si la serie no existe, no es automática o no tiene línea vigente para esa fecha,
+BC lanza su error estándar y **el POST falla** (400) — a propósito: es preferible
+a insertar la línea con el documento externo en blanco.
+
+Para cambiar de serie edita `ExtDocNoSeriesTok` en
+[Pag50102.PaymentJournalLineAPI.al](pages/Pag50102.PaymentJournalLineAPI.al).
+
+> ⚠️ **No uses aquí la misma serie que el campo `Nº serie` de la sección
+> `TESORERIA`** (`Gen. Journal Batch`.`No. Series`). Esa serie la consume BC al
+> **registrar**, para el `Document No.` (ver `GenJnlPostBatch.CheckDocumentNo`);
+> si fuese la misma, cada línea gastaría dos números y `Document No.` y
+> `External Document No.` quedarían desalineados. Verifica en *Secciones diario
+> general* > `TESORERIA` qué serie tiene asignada.
 
 > **Plantilla/Sección fijas:** no se envían desde el flujo. La API los fija a
 > `PAGOS`/`TESORERIA` (filtro en `SourceTableView` para leer, y en `OnInsertRecord`
@@ -274,7 +316,8 @@ La respuesta incluye `id` y `numeroDeLinea` asignados. Para **leer** el diario:
 `GET .../paymentJournalLines` (opcionalmente `?$filter=numeroDeCuenta eq '901710024'`).
 
 > **Permisos:** usa el conjunto **"BDT Pagos API"** ([Per50100.PagosAPI.al](permissions/Per50100.PagosAPI.al)),
-> que ya incluye `page "BDT Payment Journal Line API" = X` y `tabledata 81 = RIMD`.
+> que ya incluye `page "BDT Payment Journal Line API" = X`, `tabledata 81 = RIMD`
+> y, para la autonumeración, `tabledata "No. Series" = R` + `tabledata "No. Series Line" = RIMD`.
 
 > **Símbolo D365LATAM:** el campo `numeroTercero` usa `"D365L CO Third No."` de la
 > localización Colombia. El símbolo **ya está** en `.alpackages` y el proyecto **compila**

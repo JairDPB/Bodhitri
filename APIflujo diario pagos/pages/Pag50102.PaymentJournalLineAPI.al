@@ -28,6 +28,14 @@
 // Endpoint (entorno online):
 //   .../api/bodhitri/pagos/v1.0/companies({id})/paymentJournalLines
 //
+// Numeración automática del "Número de Documento Externo":
+//   Si el flujo NO envía 'NDocumentoExterno', la API toma el siguiente número
+//   de la serie definida en ExtDocNoSeriesTok (por defecto 'EGRESO') usando el
+//   codeunit estándar 310 "No. Series" (Business Foundation). Eso consume el
+//   campo "Last No. Used" de la línea de la serie (tabla 309), igual que
+//   cualquier documento de BC: si el último usado es EGR7449, la línea creada
+//   recibe EGR7450. Si el flujo SÍ envía un valor, se respeta tal cual.
+//
 // Registro/posting: FUERA de esta API (se registra dentro de BC).
 // =============================================================================
 page 50131 "BDT Payment Journal Line API"
@@ -102,6 +110,17 @@ page 50131 "BDT Payment Journal Line API"
                 {
                     Caption = 'Número de tercero';
                 }
+                field(TipoRegistroGen; Rec."Gen. Posting Type")
+                {
+                    Caption = 'Tipo de Registro Gen';
+                }
+                // Si el flujo no lo envía, OnInsertRecord lo autonumera desde
+                // la serie ExtDocNoSeriesTok ('EGRESO'). Enviarlo explícitamente
+                // sobrescribe la autonumeración (y NO consume la serie).
+                field(NDocumentoExterno; Rec."External Document No.")
+                {
+                    Caption = 'Número de Documento Externo';
+                }
 
                 // --- Técnicos (solo lectura) -----------------------------------
                 // El servidor asigna el "Line No." en OnInsertRecord; se expone
@@ -124,16 +143,23 @@ page 50131 "BDT Payment Journal Line API"
         // Diario fijo de esta API. Mantener sincronizados con SourceTableView.
         PaymentTemplateTok: Label 'PAGOS', Locked = true;
         PaymentBatchTok: Label 'TESORERIA', Locked = true;
+        // Serie de numeración que alimenta "External Document No." (comprobante
+        // de egreso). Debe existir en "Nos. serie" (tabla 308) con una línea
+        // vigente para la fecha de registro y "Numeración predet." activada.
+        // Cambiar aquí si la serie cambia de código.
+        ExtDocNoSeriesTok: Label 'EGRESO', Locked = true;
 
     /// <summary>
     /// Al crear una línea: fija Plantilla/Sección del diario de pagos (en orden:
     /// plantilla primero, luego sección), asigna el "Line No." de servidor
-    /// (último de ese diario + 10000) y usa la fecha de trabajo si no llega
-    /// "fechaRegistro".
+    /// (último de ese diario + 10000), usa la fecha de trabajo si no llega
+    /// "fechaDeRegistro" y autonumera el "External Document No." desde la serie
+    /// ExtDocNoSeriesTok cuando el flujo no lo envía.
     /// </summary>
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     var
         GenJnlLine: Record "Gen. Journal Line";
+        NoSeries: Codeunit "No. Series";
     begin
         // Plantilla primero, luego Sección (la validación de la Sección exige que
         // la Plantilla ya esté puesta en el registro).
@@ -151,5 +177,15 @@ page 50131 "BDT Payment Journal Line API"
 
         if Rec."Posting Date" = 0D then
             Rec."Posting Date" := WorkDate();
+
+        // Autonumeración del documento externo (comprobante de egreso).
+        // Se hace DESPUÉS de fijar "Posting Date": la fecha decide qué línea de
+        // la serie aplica (campo "Starting Date" de la tabla 309).
+        // GetNextNo consume el número (actualiza "Last No. Used"); si la serie
+        // no existe, no es automática o no tiene línea vigente para esa fecha,
+        // lanza el error estándar de BC y el POST falla — preferible a insertar
+        // la línea con el documento externo en blanco.
+        if Rec."External Document No." = '' then
+            Rec."External Document No." := NoSeries.GetNextNo(ExtDocNoSeriesTok, Rec."Posting Date");
     end;
 }
