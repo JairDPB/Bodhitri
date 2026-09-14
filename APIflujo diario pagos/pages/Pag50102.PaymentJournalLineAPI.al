@@ -117,9 +117,9 @@ page 50131 "BDT Payment Journal Line API"
                 // Si el flujo no lo envía, OnInsertRecord lo autonumera desde
                 // la serie ExtDocNoSeriesTok ('EGRESO'). Enviarlo explícitamente
                 // sobrescribe la autonumeración (y NO consume la serie).
-                field(NDocumentoExterno; Rec."External Document No.")
+                field(NDocumento; Rec."Document No.")
                 {
-                    Caption = 'Número de Documento Externo';
+                    Caption = 'Número de Documento';
                 }
 
                 // --- Técnicos (solo lectura) -----------------------------------
@@ -147,7 +147,7 @@ page 50131 "BDT Payment Journal Line API"
         // de egreso). Debe existir en "Nos. serie" (tabla 308) con una línea
         // vigente para la fecha de registro y "Numeración predet." activada.
         // Cambiar aquí si la serie cambia de código.
-        ExtDocNoSeriesTok: Label 'EGRESO', Locked = true;
+        DocNoSeriesTok: Label 'EGRESO', Locked = true;
 
     /// <summary>
     /// Al crear una línea: fija Plantilla/Sección del diario de pagos (en orden:
@@ -185,7 +185,7 @@ page 50131 "BDT Payment Journal Line API"
         // no existe, no es automática o no tiene línea vigente para esa fecha,
         // lanza el error estándar de BC y el POST falla — preferible a insertar
         // la línea con el documento externo en blanco.
-        if Rec."External Document No." = '' then
-            Rec."External Document No." := NoSeries.GetNextNo(ExtDocNoSeriesTok, Rec."Posting Date");
+        if Rec."Document No." = '' then
+            Rec."Document No." := NoSeries.GetNextNo(DocNoSeriesTok, Rec."Posting Date");
     end;
 }
