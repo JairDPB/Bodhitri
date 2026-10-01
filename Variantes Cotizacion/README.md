@@ -39,7 +39,8 @@ ESPALDAR NA: MALLA NA NEGRA  ; ASIENTO NA: TAPIZADO NA G2 ; ESTRUCTURA NA: PLAST
 Variantes Cotizacion/
 ├── app.json                                       (Dependencia → LyLVariantsExt)
 ├── CodeUnit/
-│   └── Cod80801.VariantDetailBuilder.al           (Lógica: parseo + emparejamiento + relleno)
+│   ├── Cod80801.VariantDetailBuilder.al           (Lógica: parseo + emparejamiento + relleno)
+│   └── Cod80803.VariantDescSync.al                (Refresca la Descripción de Variante en la línea)
 └── pages/
     └── PagExt80802.LyLNewItemVariantExt.al        (Acción en la ficha 80708)
 ```
@@ -48,6 +49,7 @@ Variantes Cotizacion/
 |--------|----|----|-----|
 | `BDT Variant Detail Builder` | 80801 | Codeunit | Descompone la descripción y rellena las líneas existentes |
 | `BDT LyL NewItemVariant Ext` | 80802 | PageExtension | Acción **"Generar detalles desde descripción"** en la ficha 80708 |
+| `BDT Variant Desc. Sync` | 80803 | Codeunit | Al cambiar la variante de una línea de venta, actualiza su **Descripción de Variante** |
 
 **Dependencia** (`app.json`): `LyLVariantsExt` · `82b819df-9a08-4cba-a31b-e08ef2612729` · L&L Consultores · v `1.0.0.0` (mín.).
 
@@ -65,6 +67,34 @@ Variantes Cotizacion/
    - `TipoAcabado` (el resto) → `LyL SpecsFeaturesDetalis` → de ahí el `FeatureCode`.
 5. **Completa** en la línea: `FeatureID`, `FeatureDescription`, `FeatureDetailID`, `FeatureDetailDescription`, `FeatureCode`, y la guarda. Al modificarla, LyL (codeunit 80700) recalcula `variantGenCode` / `Costo FOB`.
 6. Muestra cuántas líneas se rellenaron y cuántas no se pudieron emparejar.
+
+---
+
+## 🔄 Descripción de Variante sincronizada con la línea
+
+**Problema:** en la cotización, al cambiar el Código de Variante de una línea (por ejemplo
+desde **Disponibilidad prod. por → Variante**), la columna **"Descripción de Variante"**
+se quedaba con el texto de la variante anterior.
+
+**Causa** (verificada en el código fuente de BC 27.5 y de LyL):
+
+- El estándar, al validar `Variant Code`, solo copia la descripción **corta** de la variante
+  (`Item Variant.Description`) a `Sales Line.Description`. No conoce los campos de LyL.
+- LyL solo rellena `Sales Line.LyLDescription` en el `OnAfterGetRecord` del subformulario
+  de la cotización, y **solo si está vacía**. Si ya tenía la de otra variante, no la cambia.
+
+**Solución:** `BDT Variant Desc. Sync` (80803) se suscribe al `OnAfterValidateEvent` de
+`Sales Line."Variant Code"`. Cada vez que se valida la variante en una línea de tipo
+Artículo, copia `Item Variant."LyL LongDescription"` a `LyLDescription` (recortada a 1.000
+caracteres; si la variante no tiene descripción larga, usa la corta). Si se quita la
+variante, la vacía.
+
+> **La columna "Descripción" no cambia, y es lo esperado.** LyL crea todas las variantes de
+> un producto con `Description` = la del artículo, así que esa columna sigue mostrando el
+> nombre del producto. Lo que distingue a cada variante es la **Descripción de Variante**.
+
+**Líneas que ya están desfasadas:** se corrigen volviendo a elegir su variante desde
+*Disponibilidad prod. por → Variante*. Se refresca siempre, aunque sea la misma variante.
 
 ---
 
@@ -90,7 +120,7 @@ Variantes Cotizacion/
 
 ## 📞 Notas
 - **Autor**: Equipo de Desarrollo — Bodhitri
-- **Versión**: 2.1.0 (rellenado de acabados en líneas existentes)
-- **Última Actualización**: 2026-06-18
+- **Versión**: 2.2.0 (Descripción de Variante sincronizada al cambiar la variante de la línea)
+- **Última Actualización**: 2026-10-01
 
 > Versiones previas (autocomplete de `Variant Code` en la Cotización, o borrado+recreación de líneas) eran enfoques incorrectos y fueron reemplazados por este.
