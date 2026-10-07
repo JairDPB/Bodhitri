@@ -13,6 +13,14 @@
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true
+        },
+        {
+            "name": "AL: Generated Download Symbols request",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "SandboxBHv2",
+            "tenant": "10657a47-53a7-4493-b90b-033cc0505242"
         }
     ]
 }

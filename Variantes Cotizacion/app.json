@@ -1,39 +1,51 @@
 {
-  "id": "0c17e7d9-6025-4dc5-b655-1ec20cfde70a",
-  "name": "Variantes Cotizacion",
-  "publisher": "Default Publisher",
-  "version": "1.0.0.1",
-  "brief": "",
-  "description": "",
-  "privacyStatement": "",
-  "EULA": "",
-  "help": "",
-  "url": "",
-  "logo": "",
-  "dependencies": [
-    {
-      "id": "82b819df-9a08-4cba-a31b-e08ef2612729",
-      "name": "LyLVariantsExt",
-      "publisher": "L&L Consultores",
-      "version": "1.0.0.0"
-    }
-  ],
-  "screenshots": [],
-  "platform": "1.0.0.0",
-  "application": "27.0.0.0",
-  "idRanges": [
-    {
-      "from": 80800,
-      "to": 80850
-    }
-  ],
-  "resourceExposurePolicy": {
-    "allowDebugging": true,
-    "allowDownloadingSource": true,
-    "includeSourceInSymbolFile": true
-  },
-  "runtime": "16.0",
-  "features": [
-    "NoImplicitWith"
-  ]
+    "id": "0c17e7d9-6025-4dc5-b655-1ec20cfde70a",
+    "name": "Variantes Cotizacion",
+    "publisher": "Default Publisher",
+    "version": "1.0.0.1",
+    "brief": "",
+    "description": "",
+    "privacyStatement": "",
+    "EULA": "",
+    "help": "",
+    "url": "",
+    "logo": "",
+    "dependencies": [
+        {
+            "id": "82b819df-9a08-4cba-a31b-e08ef2612729",
+            "name": "LyLVariantsExt",
+            "publisher": "L&L Consultores",
+            "version": "1.0.0.0"
+        },
+        {
+            "id": "34a11e6d-1185-4215-9a19-64fd656b8db9",
+            "name": "D365LATAM Planos Bancarios",
+            "publisher": "D365LATAM",
+            "version": "1.0.0.20"
+        },
+        {
+            "id": "a35c1027-c1a1-495d-a8f1-ae1b8ebbe54c",
+            "name": "BC",
+            "publisher": "LYLNOTIFIOPAGOS",
+            "version": "1.0.0.7"
+        }
+    ],
+    "screenshots": [],
+    "platform": "1.0.0.0",
+    "application": "28.5.54151.55594",
+    "idRanges": [
+        {
+            "from": 80800,
+            "to": 80850
+        }
+    ],
+    "resourceExposurePolicy": {
+        "allowDebugging": true,
+        "allowDownloadingSource": true,
+        "includeSourceInSymbolFile": true
+    },
+    "runtime": "17.0",
+    "features": [
+        "NoImplicitWith"
+    ]
 }

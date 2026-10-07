@@ -1,0 +1,6 @@
+Codigo fuente de 'D365LATAM Planos Bancarios' 1.0.0.20 (app id 34a11e6d-1185-4215-9a19-64fd656b8db9),
+extraido del paquete de simbolos descargado de SandboxBH.
+
+SOLO LECTURA. Es codigo de D365LATAM: la extension tiene 'Permitir descargar origen' desactivado y
+solo expone el codigo dentro de los simbolos para navegar y depurar. No se modifica ni se versiona
+en el repositorio Bodhitri; para cambiar su comportamiento hay que extenderla o pedirlo al proveedor.

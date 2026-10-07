@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="es-MX" original="SupplierBank">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 2558345169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BankColombia</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LyL BankColombia - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2558345169 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LyL BankColombia - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2558345169 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LyL BankColombia - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2558345169 - Field 3923557737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NationalAccount</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LyL BankColombia - Field NationalAccount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2558345169 - Field 3923557737 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Si,No</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LyL BankColombia - Field NationalAccount - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 964685069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Colombia Banks</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Bancos - Colombia"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LyL BankColombiaCard - Property Caption</note>
+          <target>Bancos - Colombia</target>
+        </trans-unit>
+        <trans-unit id="Page 964685069 - Control 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Código"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LyL BankColombiaCard - Control Code - Property Caption</note>
+          <target>Código</target>
+        </trans-unit>
+        <trans-unit id="Page 964685069 - Control 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nombre"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LyL BankColombiaCard - Control Name - Property Caption</note>
+          <target>Nombre</target>
+        </trans-unit>
+        <trans-unit id="Page 964685069 - Control 3923557737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>National Account</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Cuenta Nacional"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LyL BankColombiaCard - Control NationalAccount - Property Caption</note>
+          <target>Cuenta Nacional</target>
+        </trans-unit>
+        <trans-unit id="Page 3050671959 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Colombia</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Bancos Colombia"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LyL BankColombiaList - Property Caption</note>
+          <target>Bancos Colombia</target>
+        </trans-unit>
+        <trans-unit id="Page 3050671959 - Control 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Código"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LyL BankColombiaList - Control Code - Property Caption</note>
+          <target>Código</target>
+        </trans-unit>
+        <trans-unit id="Page 3050671959 - Control 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Nombre"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LyL BankColombiaList - Control Name - Property Caption</note>
+          <target>Nombre</target>
+        </trans-unit>
+        <trans-unit id="Page 3050671959 - Control 3923557737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account National</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Cuenta Nacional"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LyL BankColombiaList - Control NationalAccount - Property Caption</note>
+          <target>Cuenta Nacional</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 2267550245 - Control 2799111892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 697379313">
+          <source>Account Type</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Tipo de Cuenta"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LyL Supplier Bank - Control LyL AccountType - Property Caption</note>
+          <target>Tipo de Cuenta</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 2267550245 - Control 1811661224 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 697379313">
+          <source>Bank</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Banco"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LyL Supplier Bank - Control LyL Banks - Property Caption</note>
+          <target>Banco</target>
+        </trans-unit>
+        <trans-unit id="TableExtension 2267550245 - Field 2799111892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4231435149">
+          <source>AccountType</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LyL Supplier Bank - Field LyL AccountType - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2267550245 - Field 2799111892 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4231435149">
+          <source>Cuenta Ahorros,Cuenta Corriente,Credito Rotativo</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LyL Supplier Bank - Field LyL AccountType - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2267550245 - Field 1811661224 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4231435149">
+          <source>Banks</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LyL Supplier Bank - Field LyL Banks - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
