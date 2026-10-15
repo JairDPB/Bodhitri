@@ -51,10 +51,14 @@ Formatos Bodhitri/
 ├─ app.json                              # Manifiesto: dependencias, rango de IDs, runtime
 ├─ Reports Code/
 │  ├─ CotizacionVenta.al                 # reportextension 50100 (columnas imagen + 2 layouts)
-│  └─ CotizacionVentaEcuador.al          # (sin objeto) el layout Ecuador vive en el 50100
+│  ├─ CotizacionVentaEcuador.al          # (sin objeto) el layout Ecuador vive en el 50100
+│  ├─ ComprasPendRecibir.al              # report 50102: compras pendientes por recibir
+│  └─ ComprasPendFacturar.al             # report 50103: compras pendientes por facturar
 ├─ Reports/
 │  ├─ Cotización Venta Ezgo.rdl          # Layout RDLC — Colombia
-│  └─ COTIZACION EZGO ECUADOR.rdl        # Layout RDLC — Ecuador
+│  ├─ COTIZACION EZGO ECUADOR.rdl        # Layout RDLC — Ecuador
+│  ├─ ComprasPendRecibir.rdl             # Layout RDLC — pendientes por recibir
+│  └─ ComprasPendFacturar.rdl            # Layout RDLC — pendientes por facturar
 ├─ Setup/
 │  ├─ BDTBuscarAppObjeto.Page.al         # page 50149: utilidad de diagnóstico
 │  └─ BDTImportarImgItems.Page.al        # page 50101: carga masiva de imágenes (ZIP)
@@ -100,6 +104,21 @@ resumen (importadas / no encontradas / omitidas). Búscala en el ERP como
 > **Nota:** los paquetes de configuración (RapidStart) y "Editar en Excel" **no** cargan
 > imágenes; por eso se implementa este importador. Alternativa para integración: la API
 > estándar `PATCH .../items({id})/picture`.
+
+### `report 50102 "BDT Compras Pend Recibir"` y `report 50103 "BDT Compras Pend Facturar"`
+Archivos: [`Reports Code/ComprasPendRecibir.al`](Reports%20Code/ComprasPendRecibir.al) · [`Reports Code/ComprasPendFacturar.al`](Reports%20Code/ComprasPendFacturar.al)
+
+Listados de **pedidos de compra** (Purchase Header 38 → Purchase Line 39, `Document Type = Order`)
+con sus líneas. Categoría *Informes y análisis* (búscalos en "Dígame" por su nombre).
+
+- **50102 – Pendientes por recibir:** muestra `N.º pedido`, `Proveedor`, `No.`, `Descripción`,
+  `Cantidad`, **Cantidad a recibir** (`Qty. to Receive`) y **Cantidad recibida** (`Quantity
+  Received`). Filtra las líneas con cantidad pendiente por recibir (Recibida < Cantidad).
+- **50103 – Pendientes por facturar:** igual, pero con **Cantidad a facturar** (`Qty. to Invoice`)
+  y **Cantidad facturada** (`Quantity Invoiced`). Filtra líneas con Facturada < Cantidad.
+
+Diseño RDLC horizontal (A4), encabezado verde corporativo. Para la vista tipo Excel del
+mockup: ejecuta el informe y usa **"Enviar a → Microsoft Excel (solo datos)"**.
 
 ---
 

@@ -101,6 +101,10 @@ page 50134 "BDT Posted Purch. Inv. API"
                 {
                     Caption = 'Cód. divisa';
                 }
+                field(cerrado; Rec."Closed")
+                {
+                    Caption = 'Cerrado';
+                }
                 field(fechaCreacion; Rec.SystemCreatedAt)
                 {
                     Caption = 'Fecha de creación';
