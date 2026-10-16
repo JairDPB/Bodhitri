@@ -28,6 +28,7 @@ report 50102 "BDT Compras Pend Recibir"
             column(Quantity; Quantity) { }
             column(QtyToReceive; "Qty. to Receive") { }
             column(QuantityReceived; "Quantity Received") { }
+            column(FechaHoraDescarga; FechaHoraDescarga) { }
 
             trigger OnAfterGetRecord()
             begin
@@ -55,4 +56,11 @@ report 50102 "BDT Compras Pend Recibir"
     var
         PurchaseHeader: Record "Purchase Header";
         BuyFromVendorName: Text[100];
+        FechaHoraDescarga: Text[30];
+
+    trigger OnPreReport()
+    begin
+        // Fecha y hora de generación del informe, en la zona horaria del usuario.
+        FechaHoraDescarga := Format(CurrentDateTime, 0, '<Day,2>/<Month,2>/<Year4> <Hours24,2><Filler Character,0>:<Minutes,2>:<Seconds,2>');
+    end;
 }

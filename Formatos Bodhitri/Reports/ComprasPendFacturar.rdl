@@ -36,11 +36,42 @@
             <Top>0cm</Top>
             <Left>0cm</Left>
             <Height>0.7cm</Height>
-            <Width>25.2cm</Width>
+            <Width>16.2cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+            </Style>
+          </Textbox>
+          <Textbox Name="FechaDescarga">
+            <CanGrow>true</CanGrow>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Fecha y hora de descarga: " &amp; First(Fields!FechaHoraDescarga.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <Color>#595959</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>FechaDescarga</rd:DefaultName>
+            <Top>0cm</Top>
+            <Left>16.2cm</Left>
+            <Height>0.7cm</Height>
+            <Width>9cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
             </Style>
           </Textbox>
           <Tablix Name="Tablix1">
@@ -689,6 +720,9 @@
         </Field>
         <Field Name="QuantityInvoicedFormat">
           <DataField>QuantityInvoicedFormat</DataField>
+        </Field>
+        <Field Name="FechaHoraDescarga">
+          <DataField>FechaHoraDescarga</DataField>
         </Field>
       </Fields>
       <Query>

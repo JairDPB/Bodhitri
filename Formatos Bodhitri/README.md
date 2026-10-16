@@ -120,6 +120,10 @@ con sus líneas. Categoría *Informes y análisis* (búscalos en "Dígame" por s
 Diseño RDLC horizontal (A4), encabezado verde corporativo. Para la vista tipo Excel del
 mockup: ejecuta el informe y usa **"Enviar a → Microsoft Excel (solo datos)"**.
 
+Junto al título se imprime la **fecha y hora de descarga** (`dd/mm/aaaa hh:mm:ss`). Se calcula
+en AL (`OnPreReport`, columna `FechaHoraDescarga`) con `Format(CurrentDateTime)` para que salga
+en la zona horaria del usuario; `Globals!ExecutionTime` del RDLC daría la hora UTC del servidor.
+
 ---
 
 ## Cómo se renderiza la imagen (MediaSet → Base64 → RDL)
