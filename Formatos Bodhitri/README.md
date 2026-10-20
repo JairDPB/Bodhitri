@@ -53,15 +53,19 @@ Formatos Bodhitri/
 │  ├─ CotizacionVenta.al                 # reportextension 50100 (columnas imagen + 2 layouts)
 │  ├─ CotizacionVentaEcuador.al          # (sin objeto) el layout Ecuador vive en el 50100
 │  ├─ ComprasPendRecibir.al              # report 50102: compras pendientes por recibir
-│  └─ ComprasPendFacturar.al             # report 50103: compras pendientes por facturar
+│  ├─ ComprasPendFacturar.al             # report 50103: compras pendientes por facturar
+│  └─ AccountScheduleFirmas.al           # reportextension 50106: informe financiero + logo + firmas
 ├─ Reports/
 │  ├─ Cotización Venta Ezgo.rdl          # Layout RDLC — Colombia
 │  ├─ COTIZACION EZGO ECUADOR.rdl        # Layout RDLC — Ecuador
 │  ├─ ComprasPendRecibir.rdl             # Layout RDLC — pendientes por recibir
-│  └─ ComprasPendFacturar.rdl            # Layout RDLC — pendientes por facturar
+│  ├─ ComprasPendFacturar.rdl            # Layout RDLC — pendientes por facturar
+│  └─ AccountScheduleFirmas.rdl          # Layout RDLC — informe financiero (logo + firmas)
 ├─ Setup/
 │  ├─ BDTBuscarAppObjeto.Page.al         # page 50149: utilidad de diagnóstico
-│  └─ BDTImportarImgItems.Page.al        # page 50101: carga masiva de imágenes (ZIP)
+│  ├─ BDTImportarImgItems.Page.al        # page 50101: carga masiva de imágenes (ZIP)
+│  ├─ BDTFirmasInformeSetup.Table.al     # table 50104: config. de firmas del informe
+│  └─ BDTFirmasInformeSetup.Page.al      # page 50105: página de config. de firmas
 └─ README.md
 ```
 
@@ -119,6 +123,30 @@ con sus líneas. Categoría *Informes y análisis* (búscalos en "Dígame" por s
 
 Diseño RDLC horizontal (A4), encabezado verde corporativo. Para la vista tipo Excel del
 mockup: ejecuta el informe y usa **"Enviar a → Microsoft Excel (solo datos)"**.
+
+### `reportextension 50106 "BDT Account Schedule Firmas"` → extiende `report 25 "Account Schedule"`
+Archivos: [`Reports Code/AccountScheduleFirmas.al`](Reports%20Code/AccountScheduleFirmas.al) ·
+[`Reports/AccountScheduleFirmas.rdl`](Reports/AccountScheduleFirmas.rdl) ·
+[`Setup/BDTFirmasInformeSetup.Table.al`](Setup/BDTFirmasInformeSetup.Table.al) ·
+[`Setup/BDTFirmasInformeSetup.Page.al`](Setup/BDTFirmasInformeSetup.Page.al)
+
+Extiende el informe financiero (Report 25, "Ejecutar informe financiero") para agregar el
+**logo de la empresa** arriba y **3 firmas** al pie.
+
+- **Dataset:** al dataitem `Heading` (se ejecuta una vez) se le añaden columnas: `CompanyLogoBase64`
+  (+ `CompanyLogoMime` autodetectado) leído de `Company Information.Picture` (que es un **BLOB**),
+  y 12 columnas de firmas tomadas de la tabla de configuración.
+- **Firmas configurables:** tabla `BDT Firmas Informe Setup` (50104) + página
+  *"Configuración de firmas del informe financiero"* (50105). Tres bloques: Nombre, Cargo,
+  C.C./T.P. y una Nota opcional (ej. "Designado por: ..."). Déjalos en blanco para que queden
+  solo las líneas de firma.
+- **Layout:** `AccountScheduleFirmasBDT` = copia del layout horizontal de Microsoft
+  (`AccountSchedule.rdlc`) + logo en el PageHeader + firmas en el PageFooter. Se selecciona en
+  *"Diseños de informe"* del informe 25.
+
+> **Notas de ajuste:** el logo va en la zona superior libre del encabezado; las firmas en el pie
+> (se repiten en cada página — si el informe es de varias páginas y las quieres solo en la última,
+> es un ajuste de `Visibility`). Posiciones/tamaños se afinan en el diseñador de layouts.
 
 ---
 
