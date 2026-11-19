@@ -51,6 +51,14 @@ report 50102 "BDT Compras Pend Recibir"
             LayoutFile = 'Reports/ComprasPendRecibir.rdl';
             Caption = 'Compras pendientes por recibir';
         }
+
+        // Layout Excel: el compilador genera el .xlsx (hoja "Data") desde el dataset.
+        layout("ComprasPendRecibirExcel")
+        {
+            Type = Excel;
+            LayoutFile = 'Reports/ComprasPendRecibir.xlsx';
+            Caption = 'Compras pendientes por recibir (Excel)';
+        }
     }
 
     var

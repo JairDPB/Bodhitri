@@ -14,6 +14,8 @@
 //     50134 (sincronización con SharePoint): "Purch. Inv. Header" (122) y
 //     "Purch. Inv. Line" (123), esta última porque el importe con IVA de la
 //     cabecera es un FlowField que suma las líneas.
+//   * Leer los movimientos contables "G/L Entry" (17) desde la página API
+//     50135 (solo lectura).
 //
 // Asígnalo al usuario de integración en BC (Usuarios > Conjuntos de permisos) o
 // inclúyelo dentro de un rol mayor. Asignable = true para poder asignarlo solo.
@@ -45,9 +47,14 @@ permissionset 50100 "BDT Pagos API"
         // puede calcular y la API devolvería error de permisos.
         tabledata "Purch. Inv. Header" = R,
         tabledata "Purch. Inv. Line" = R,
+        // Movimientos contables (API 50135): solo lectura. El alias del tercero
+        // se busca en Proveedores (Vendor, ya concedido arriba) y Clientes.
+        tabledata "G/L Entry" = R,
+        tabledata Customer = R,
         page "BDT Gen. Journal Line API" = X,
         page "BDT Payment Journal Line API" = X,
         page "BDT Item API" = X,
         page "BDT Purchase Header API" = X,
-        page "BDT Posted Purch. Inv. API" = X;
+        page "BDT Posted Purch. Inv. API" = X,
+        page "BDT G/L Entry API" = X;
 }

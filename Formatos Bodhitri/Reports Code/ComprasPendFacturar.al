@@ -51,6 +51,14 @@ report 50103 "BDT Compras Pend Facturar"
             LayoutFile = 'Reports/ComprasPendFacturar.rdl';
             Caption = 'Compras pendientes por facturar';
         }
+
+        // Layout Excel: el compilador genera el .xlsx (hoja "Data") desde el dataset.
+        layout("ComprasPendFacturarExcel")
+        {
+            Type = Excel;
+            LayoutFile = 'Reports/ComprasPendFacturar.xlsx';
+            Caption = 'Compras pendientes por facturar (Excel)';
+        }
     }
 
     var
