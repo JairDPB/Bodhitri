@@ -3,10 +3,11 @@
 // -----------------------------------------------------------------------------
 // Hace que el botón "Acabados" del PEDIDO funcione igual que en la COTIZACIÓN:
 //   • Oculta el "Acabados" simple de LyL (action "LyL newAction" de la
-//     Pag-Ext 80701), que siempre creaba el borrador con Código Variante = '0'.
+//     Pag-Ext 80701), que creaba el borrador con Código Variante = '0' cuando
+//     no encontraba uno de la línea con su mismo código.
 //   • Agrega un "Acabados" que usa la lógica completa (codeunit
-//     "BDT Order Variant Mgt"), copiando el código y las líneas de la variante
-//     registrada elegida en la línea.
+//     "BDT Order Variant Mgt"): muestra el código de la variante de la línea y
+//     copia sus especificaciones, sea cual sea su nivel (3, 4...).
 // =============================================================================
 pageextension 80805 "BDT SalesOrderSubform Variant" extends "Sales Order Subform"
 {

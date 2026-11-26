@@ -40,9 +40,11 @@ Variantes Cotizacion/
 ├── app.json                                       (Dependencia → LyLVariantsExt)
 ├── CodeUnit/
 │   ├── Cod80801.VariantDetailBuilder.al           (Lógica: parseo + emparejamiento + relleno)
-│   └── Cod80803.VariantDescSync.al                (Refresca la Descripción de Variante en la línea)
+│   ├── Cod80803.VariantDescSync.al                (Refresca la Descripción de Variante en la línea)
+│   └── Cod80804.OrderVariantMgt.al                ("Acabados" del pedido con la lógica de la cotización)
 └── pages/
-    └── PagExt80802.LyLNewItemVariantExt.al        (Acción en la ficha 80708)
+    ├── PagExt80802.LyLNewItemVariantExt.al        (Acción en la ficha 80708)
+    └── PagExt80805.SalesOrderSubformVariant.al    (Reemplaza el "Acabados" de LyL en el pedido)
 ```
 
 | Objeto | ID | Tipo | Rol |
@@ -50,6 +52,8 @@ Variantes Cotizacion/
 | `BDT Variant Detail Builder` | 80801 | Codeunit | Descompone la descripción y rellena las líneas existentes |
 | `BDT LyL NewItemVariant Ext` | 80802 | PageExtension | Acción **"Generar detalles desde descripción"** en la ficha 80708 |
 | `BDT Variant Desc. Sync` | 80803 | Codeunit | Al cambiar la variante de una línea de venta, actualiza su **Descripción de Variante** |
+| `BDT Order Variant Mgt` | 80804 | Codeunit | Abre el Registro de Variante de una línea del **pedido** con el código y los acabados de su variante |
+| `BDT SalesOrderSubform Variant` | 80805 | PageExtension | En el subformulario del **pedido** oculta el "Acabados" de LyL y pone el de 80804 |
 
 **Dependencia** (`app.json`): `LyLVariantsExt` · `82b819df-9a08-4cba-a31b-e08ef2612729` · L&L Consultores · v `1.0.0.0` (mín.).
 
@@ -98,13 +102,51 @@ variante, la vacía.
 
 ---
 
+## 🧾 "Acabados" en el Pedido de Venta (misma lógica que la Cotización)
+
+**Problema:** en el pedido, al pulsar **Acabados** sobre una línea con variante, el
+Registro de Variante se abría con **Código Variante = 0**, acabados vacíos y Costo FOB 0.
+En la cotización, en cambio, muestra la variante de la línea con sus acabados.
+
+**Causa** (verificada en el código fuente de LyL):
+
+- El "Acabados" de LyL en el pedido (Pag-Ext 80701) solo busca un borrador
+  (`LyL ItemVariant`) de esa línea con el mismo código. Si no lo encuentra, crea uno
+  nuevo con código `'0'`.
+- El de la cotización (Pag-Ext 80704) además copia la variante registrada de la línea,
+  **pero solo si es de nivel 3**. En el pedido las variantes suelen ser de **nivel 4**
+  (las crea LyL al registrar desde un pedido) o se eligen a mano en *Cód. variante*
+  (que en el pedido es editable), así que copiar la lógica de la cotización tal cual
+  seguía mostrando `'0'`.
+
+**Solución:** `BDT SalesOrderSubform Variant` (80805) oculta el "Acabados" de LyL en el
+pedido y pone uno propio que usa `BDT Order Variant Mgt` (80804):
+
+| Paso | Situación de la línea | Qué abre |
+|------|-----------------------|----------|
+| 1 | Ya hay un borrador de la línea con su código de variante | Ese borrador |
+| 2a | La variante se registró desde esta misma línea | Su borrador, con el código corregido |
+| 2b | La variante se registró en otro documento (p. ej. la cotización de origen) | Borrador nuevo con el código, Costo FOB, `variantGenCode` y acabados copiados |
+| 2c | La variante no tiene registro de LyL (creada a mano) | Borrador con el código de la línea y los acabados vacíos de la clase |
+| 3 | La línea no tiene variante | Borrador `'0'` (igual que LyL) |
+
+El vínculo variante → acabados es `Item Variant."LyL IdVariant"`: el borrador con el que
+LyL registró la variante. Sirve para cualquier nivel (3, 4…) y también para las variantes
+importadas.
+
+> En el caso 2c no hay acabados registrados que copiar. Si la variante tiene una
+> "Descripción de Variante" con el formato `Especificación: Acabado Tipo; …`, se pueden
+> completar con **Generar detalles desde descripción**.
+
+---
+
 ## 🚀 Uso
 
 1. **AL: Download Symbols** (la dependencia ya está en `app.json`).
 2. Compilar (`Ctrl + Shift + B`) y publicar (`F5`).
 3. Abrir **Registro de Variante** y pulsar **"Generar detalles desde descripción"**.
 
-> ✅ Compila limpio (verificado con `alc.exe` 17.0, 0 errores / 0 warnings, contra los símbolos reales de `LyLVariantsExt`).
+> ✅ Compila limpio (verificado con el compilador AL 18.1, runtime 17.0: 0 errores / 0 warnings, contra los símbolos reales de `LyLVariantsExt` 1.0.0.123).
 
 ---
 
@@ -120,7 +162,7 @@ variante, la vacía.
 
 ## 📞 Notas
 - **Autor**: Equipo de Desarrollo — Bodhitri
-- **Versión**: 2.2.0 (Descripción de Variante sincronizada al cambiar la variante de la línea)
-- **Última Actualización**: 2026-10-01
+- **Versión**: 2.3.0 — app 1.0.0.2 ("Acabados" del pedido muestra la variante de la línea, como en la cotización)
+- **Última Actualización**: 2026-11-25
 
 > Versiones previas (autocomplete de `Variant Code` en la Cotización, o borrado+recreación de líneas) eran enfoques incorrectos y fueron reemplazados por este.
